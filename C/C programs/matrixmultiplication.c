@@ -55,6 +55,7 @@ int main(){
             result[i]=(int*)calloc(c2,sizeof(int));
             if (result[i]==NULL){
             printf("Memory allocation failed\n");
+            return 1;
         }
         }
         for(i=0;i<r1;i++){
@@ -73,8 +74,7 @@ int main(){
             }
             printf("\n");
         }
-    }
-    for (int i = 0; i < r1; i++) {
+        for (int i = 0; i < r1; i++) {
         free(arr1[i]);
     }
     free(arr1);
@@ -88,5 +88,7 @@ int main(){
         free(result[i]);
     }
     free(result);
+    }
+    
   return 0;
 }
