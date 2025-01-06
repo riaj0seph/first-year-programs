@@ -1,0 +1,64 @@
+import numpy as np
+from random import randint
+from time import time
+
+start=time()
+def createsparsematrix(A):
+    (m,n)=A.shape
+    sparse=[]
+    for i in range(m):
+        for j in range(n):
+            if A[i][j]!=0:
+                element=[]
+                element[0]=i
+                element[1]=j
+                element[2]=A[i][j]
+                sparse.append(element)
+    return sparse
+
+def avgsparsematrix(A,B):
+    len_A=len(A)
+    len_B=len(B)
+    for i A:
+        for j in B:
+         if i[0]==j[0] and i[1]==j[1]:
+            C.append([i[0],j[1],(i[3]+j[3])/2])
+            A.remove(i)
+            B.remove(j)
+    for i in A:
+        C.append([i[0],i[1],(i[3])/2])
+    for j in B:
+        C.append([j[0],j[1],(j[3])/2])    
+    
+    return C
+    
+    
+(m,n)=(int(input("Enter the number of rows ")),int(input("Enter the number of columns")))
+    
+p=randint(0,n//20)
+A=np.zeros((m,n))
+B=np.zeros((m,n))
+ratings_a=np.zeros((p,m)))
+ratings_b=np.zeros((p,m))
+for i in range(p):
+    for j in range(m):
+        ratings_a[i][j]=randint(1,5)
+        ratings_b[i][j]=randint(1,5)
+
+indices=[]
+for i in range(p):
+    indices.append(randint(0,n-1))
+
+A=A.T 
+B=B.T
+for i in range(p):
+    A[indices[i]]=ratings_a[i]
+    B[indices[i]]=ratings_b[i]
+A=A.T
+B=B.T
+(A_sparse,B_sparse)=createsparsematrix(A),createsparsematrix(B)
+C=A+B/2
+C_sparse=avgsparsematrix(A_sparse,B_sparse)
+print(C_sparse)
+end=time()
+print(end-start)
